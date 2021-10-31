@@ -52,6 +52,8 @@ function start() {
     bees = new Array();
     //create bees
     makeBees();
+    //Updates bees (move bees in random location and in random intervals)
+    updateBees();
 }
 
 // Handle keyboad events 
@@ -182,5 +184,20 @@ function makeBees() {
         bee.display(); //display the bee
         bees.push(bee); //add the bee object to the bees array
         i++;
+    }
+}
+
+function updateBees() { // update loop for game
+    //move the bees randomly
+    moveBees();
+
+    //use a fixed update period
+    let period = document.getElementById("periodTimer").value; //time taken from input of user for refresh period of bees
+    //update the timer for the next move
+    if (hits.innerHTML>=1000){  //checks if number of stings on bear is greater than or equal to 1000
+        alert("GAME OVER!");    //It stops the game and alerts user that game is over if stings met logical condition.
+    }
+    else{
+        updateTimer = setTimeout('updateBees()', period); //changes the position of the bees according to the amount of stings
     }
 }
