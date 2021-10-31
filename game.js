@@ -97,7 +97,7 @@ class Bee {
 
         this.display = function() {
             //adjust position of bee and display it
-            this.fitBounds();//add this to adjust to bounds
+            this.fitBounds(); //added this to adjust to bounds
             this.htmlElement.style.left = this.x + "px";
             this.htmlElement.style.top = this.y + "px";
             this.htmlElement.style.display = "block";
@@ -123,7 +123,7 @@ class Bee {
             };
     }
 }
-
+//Returns a random number between 0 and max
 function getRandomInt(max){
     return Math.floor(Math.random() * max);
 }
