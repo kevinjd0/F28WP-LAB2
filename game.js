@@ -273,3 +273,8 @@ function overlap(element1, element2) {
     }
     return true;
 }
+
+//Restarts the game
+function restart(){
+    location.reload();
+}
