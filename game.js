@@ -1,5 +1,5 @@
 function Bear() {
-    
+
     this.dBear = 100;
     this.htmlElement = document.getElementById("bear");
     this.id = this.htmlElement.id;
@@ -19,3 +19,8 @@ function Bear() {
     };
 
 }
+
+function start() {
+    //create bear
+    bear = new Bear();
+   }
