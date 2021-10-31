@@ -42,9 +42,13 @@ function Bear() {
 function start() {
     //create bear
     bear = new Bear();
+    firstBearmove = false;
 
     // Add an event listener to the keypress event.
     document.addEventListener("keydown", moveBear, false);
+    document.onkeydown = function(e){
+        firstBearmove = true;
+    }
     //Added an event listener to change speed of bear according to user input
     document.addEventListener("onChange",setSpeed,false);
     
@@ -224,17 +228,20 @@ function isHit(defender, offender) {
         hits.innerHTML = score; //display the new score
         
         //calculate longest duration once bear moves
-        let newStingTime = new Date();
-        let thisDuration = newStingTime - lastStingTime;
-        lastStingTime = newStingTime;
+        if (firstBearmove==true){
+            let newStingTime = new Date();
+            let thisDuration = newStingTime - lastStingTime;
+            lastStingTime = newStingTime;
   
-        let longestDuration = Number(duration.innerHTML);
-        if (longestDuration === 0) {
-            longestDuration = thisDuration;
-        } else {
-            if (longestDuration < thisDuration) longestDuration = thisDuration;
+            let longestDuration = Number(duration.innerHTML);
+            if (longestDuration === 0) {
+                longestDuration = thisDuration;
+            } else {
+                if (longestDuration < thisDuration) longestDuration = thisDuration;
+            }
+            document.getElementById("duration").innerHTML = longestDuration;
         }
-        document.getElementById("duration").innerHTML = longestDuration;
+        
     }
         
 }
