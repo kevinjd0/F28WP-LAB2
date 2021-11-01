@@ -45,9 +45,7 @@ function start() {
 
     // Add an event listener to the keypress event.
     document.addEventListener("keydown", moveBear, false);
-    //Added an event listener to change speed of bear according to user input
-    document.addEventListener("onChange",setSpeed,false);
-    
+    lastStingTime = new Date();
     //create new array for bees
     bees = new Array();
     //create bees
@@ -59,6 +57,7 @@ function start() {
 // Handle keyboad events 
 // to move the bear
 function moveBear(e) {
+    setSpeed();
     //codes of the four keys
     const KEYUP = 38;
     const KEYDOWN = 40;
@@ -173,8 +172,8 @@ function makeBees() {
     nbBees = Number(nbBees); //try converting the content of the input to a number 
     
     if (isNaN(nbBees)) { //check that the input field contains a valid number
-    window.alert("Invalid number of bees");
-    return;
+        window.alert("Invalid number of bees");
+        return;
     }
 
     //create bees 
@@ -204,7 +203,7 @@ function moveBees() {
 function updateBees() { // update loop for game
     //move the bees randomly
     moveBees();
-
+    let hits = document.getElementById("hits").innerHTML;
     //use a fixed update period
     let period = document.getElementById("periodTimer").value; //time taken from input of user for refresh period of bees
     //update the timer for the next move
@@ -220,21 +219,21 @@ function updateBees() { // update loop for game
 function isHit(defender, offender) {
     if (overlap(defender, offender)) { //check if the two image overlap
     
-    let score = hits.innerHTML;
-    score = Number(score) + 1; //increment the score
-    hits.innerHTML = score; //display the new score
-    let newStingTime = new Date();
-    let thisDuration = newStingTime - lastStingTime;
-    lastStingTime = newStingTime;
+        let score = hits.innerHTML;
+        score = Number(score) + 1; //increment the score
+        hits.innerHTML = score; //display the new score
+        let newStingTime = new Date();
+        let thisDuration = newStingTime - lastStingTime;
+        lastStingTime = newStingTime;
     
-    let longestDuration = Number(duration.innerHTML);
-    if (longestDuration === 0) {
-        longestDuration = thisDuration;
-    } else {
-        if (longestDuration < thisDuration) longestDuration = thisDuration;
-    }
-    document.getElementById("duration").innerHTML = longestDuration;
-  
+        let longestDuration = Number(duration.innerHTML);
+        if (longestDuration === 0) {
+            longestDuration = thisDuration;
+        } else {
+            if (longestDuration < thisDuration) longestDuration = thisDuration;
+        }
+        document.getElementById("duration").innerHTML = longestDuration;
+        
     }
 }
 
