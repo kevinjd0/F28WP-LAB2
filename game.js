@@ -32,23 +32,18 @@ function Bear() {
         if (this.y < 0) this.y = 0;
         if (this.y > h - ih) this.y = h - ih;
     };
-    //Gets value of the input speed intended for the bear from html file
-    this.setSpeed = function(){
-        this.dBear=document.getElementById('speedBear').value
-    }   
+}
 
+function setSpeed(){
+    bear.dBear = document.getElementById("speedBear").value
 }
 
 function start() {
     //create bear
     bear = new Bear();
-    firstBearmove = false;
 
     // Add an event listener to the keypress event.
     document.addEventListener("keydown", moveBear, false);
-    document.onkeydown = function(e){
-        firstBearmove = true;
-    }
     //Added an event listener to change speed of bear according to user input
     document.addEventListener("onChange",setSpeed,false);
     
