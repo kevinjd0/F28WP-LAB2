@@ -96,6 +96,7 @@ class Bee {
         this.y = this.htmlElement.offsetTop;
 
         this.move = function(dx, dy) {
+            this.fitBounds();//added this to fit bees within bounds
             //move the bees by dx, dy
             this.x += dx;
             this.y += dy;
