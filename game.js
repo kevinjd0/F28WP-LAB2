@@ -233,7 +233,6 @@ function isHit(defender, offender) {
             if (longestDuration < thisDuration) longestDuration = thisDuration;
         }
         document.getElementById("duration").innerHTML = longestDuration;
-        
     }
 }
 
