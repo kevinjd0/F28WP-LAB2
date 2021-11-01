@@ -63,6 +63,7 @@ function start() {
 // Handle keyboad events 
 // to move the bear
 function moveBear(e) {
+    firstmove = true;
     setSpeed();
     //codes of the four keys
     const KEYUP = 38;
@@ -191,6 +192,13 @@ function makeBees() {
         bees.push(bee); //add the bee object to the bees array
         i++;
     }
+}
+
+function addBee(){
+    var bee = new Bee(++numberOfBees);
+    bee.display();
+    bees.push(bee);
+    document.getElementById("nbBees").value = bees.length;
 }
 
 function moveBees() {
