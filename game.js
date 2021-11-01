@@ -216,29 +216,24 @@ function updateBees() { // update loop for game
 }
 
 function isHit(defender, offender) {
-
     if (overlap(defender, offender)) { //check if the two image overlap
-        let score = hits.innerHTML;
-        score = Number(score) + 1; //increment the score
-        hits.innerHTML = score; //display the new score
-        
-        //calculate longest duration once bear moves
-        if (firstBearmove==true){
-            let newStingTime = new Date();
-            let thisDuration = newStingTime - lastStingTime;
-            lastStingTime = newStingTime;
-  
-            let longestDuration = Number(duration.innerHTML);
-            if (longestDuration === 0) {
-                longestDuration = thisDuration;
-            } else {
-                if (longestDuration < thisDuration) longestDuration = thisDuration;
-            }
-            document.getElementById("duration").innerHTML = longestDuration;
-        }
-        
+    
+    let score = hits.innerHTML;
+    score = Number(score) + 1; //increment the score
+    hits.innerHTML = score; //display the new score
+    let newStingTime = new Date();
+    let thisDuration = newStingTime - lastStingTime;
+    lastStingTime = newStingTime;
+    
+    let longestDuration = Number(duration.innerHTML);
+    if (longestDuration === 0) {
+        longestDuration = thisDuration;
+    } else {
+        if (longestDuration < thisDuration) longestDuration = thisDuration;
     }
-        
+    document.getElementById("duration").innerHTML = longestDuration;
+  
+    }
 }
 
 
