@@ -1,6 +1,6 @@
 # Marked Lab2 - F28WP
 
-[Click Here to Play Game](https://o0be8.csb.app/)
+[Click Here to Play The Game](https://dbdr7.csb.app/)
 
 ## This Lab consists of creating a simple (single player) game of Bear and Bees, where the objective of the game is for bear to avoid getting stung by bees.
 ### The user controls the bear using arrow keys to move in any 2-D directions (up,down,left,right) and user has to avoid the bees that move in random 2-D direction.
